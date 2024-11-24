@@ -5,7 +5,7 @@ class Board:
 
     def check_guess(self, guess, secret_word):
         feedback = []
-        for i in range(5):
+        for i in range(len(secret_word)):
             if guess[i] == secret_word[i]:
                 feedback.append("G")  # Correct letter, correct position
             elif guess[i] in secret_word:
