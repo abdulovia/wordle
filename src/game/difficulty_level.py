@@ -1,5 +1,5 @@
 class DifficultyLevel:
-    def __init__(self, level="medium"):
+    def __init__(self, level):
         self.level = level
         if self.level == "easy":
             self.word_length = 4
