@@ -45,5 +45,26 @@ class GameEngine:
         if self.game_stats.attempts == 0:
             print(f"Game over. The secret word was {self.secret_word.upper()}.")
 
+    def game_turn(self, guess):
+        if len(guess) != len(self.secret_word):
+            print(f"Your guess must be {len(self.secret_word)} letters long.")
+
+        if not self.word_validator.validate(guess):
+            print("Not a valid English word.")
+
+        feedback = self.board.check_guess(guess, self.secret_word)
+        self.board.update_board(guess, feedback)
+        self.board.display()
+
+        if guess == self.secret_word:
+            self.game_stats.increment_correct_guesses()
+            self.game_stats.set_time_spent()
+            print("Congratulations! You've guessed the word!")
+
+        self.game_stats.decrement_attempts()
+
+        if self.game_stats.attempts == 0:
+            print(f"Game over. The secret word was {self.secret_word.upper()}.")
+
     def get_game_stats(self):
         return self.game_stats.get_stats()

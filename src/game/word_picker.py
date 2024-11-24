@@ -1,7 +1,5 @@
 import random
 from utils.file_utils import load_words
-from game.difficulty_level import DifficultyLevel
-
 
 class WordPicker:
     def __init__(self, word_file_path, difficulty_level):
