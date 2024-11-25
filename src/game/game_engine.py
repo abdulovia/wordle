@@ -26,7 +26,7 @@ class GameEngine:
                 print(f"Your guess must be {len(self.secret_word)} letters long.")
                 continue
 
-            if not self.word_validator.validate(guess):
+            if not self.word_validator.validate_word(guess):
                 print("Not a valid English word.")
                 continue
 
@@ -50,7 +50,7 @@ class GameEngine:
             print(f"Your guess must be {len(self.secret_word)} letters long.")
             return "INCORRECT_LENGTH"
 
-        if not self.word_validator.validate(guess):
+        if not self.word_validator.validate_word(guess):
             print("Not a valid English word.")
             return "INCORRECT_WORD"
 
@@ -69,7 +69,7 @@ class GameEngine:
         if self.game_stats.attempts == 0:
             print(f"Game over. The secret word was {self.secret_word.upper()}.")
             return "LOSE"
-        
+
         return ""
 
     def get_game_stats(self):

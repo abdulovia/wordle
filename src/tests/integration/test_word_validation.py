@@ -25,5 +25,5 @@ class TestWordValidationAndEngine(unittest.TestCase):
 
         # direct check with WordValidator
         validator = WordValidator()
-        assert validator.validate("skdfj") == False, "word should not exist"
-        assert validator.validate("words") == True, "word should exist"
+        assert validator.validate_word("skdfj") == False, "word should not exist"
+        assert validator.validate_word("words") == True, "word should exist"
